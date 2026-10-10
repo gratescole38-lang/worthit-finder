@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorthIt Finder — Buy Smarter</title>
+<style>
+:root {
+  --bg: #09090b;
+  --panel: #131316;
+  --border: #29292f;
+  --text: #f5f5f7;
+  --muted: #a1a1aa;
+  --accent: #a3e635;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, Arial, sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 7%;
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-weight: 850; font-size: 21px; }
+.logo span { color: var(--accent); }
+.tag {
+  color: var(--accent);
+  border: 1px solid #40551e;
+  padding: 7px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+}
+main { max-width: 1050px; margin: auto; padding: 65px 22px; }
+.hero { text-align: center; margin-bottom: 36px; }
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: 800;
+}
+h1 {
+  font-size: clamp(38px, 7vw, 66px);
+  letter-spacing: -3px;
+  line-height: 1.06;
+  margin: 18px 0;
+}
+h1 span { color: var(--accent); }
+.hero p { color: var(--muted); line-height: 1.7; }
+.search-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 22px;
+  border-radius: 18px;
+}
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+input, select {
+  background: #09090b;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 14px;
+  border-radius: 10px;
+  width: 100%;
+  font: inherit;
+  outline: none;
+}
+input:focus, select:focus { border-color: var(--accent); }
+.controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+}
+button {
+  cursor: pointer;
+  background: var(--accent);
+  color: #151b0c;
+  border: none;
+  padding: 14px 20px;
+  font-weight: 800;
+  border-radius: 10px;
+  font-size: 14px;
+}
+button:hover { filter: brightness(1.08); }
+.search-btn { width: 100%; margin-top: 15px; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0 17px;
+  gap: 12px;
+}
+h2 { font-size: 20px; }
+.small { color: var(--muted); font-size: 12px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 18px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.product-icon {
+  height: 110px;
+  display: grid;
+  place-items: center;
+  background: #1c1c21;
+  border-radius: 10px;
+  font-size: 43px;
+}
+.category { color: var(--accent); font-size: 11px; text-transform: uppercase; }
+.card h3 { font-size: 16px; margin: 0; }
+.price { font-size: 25px; font-weight: 850; }
+.price small { color: var(--muted); font-size: 11px; font-weight: 400; }
+ul { padding-left: 18px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+.card button { margin-top: auto; }
+.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+#message { color: var(--muted); font-size: 13px; margin-top: 15px; }
+footer {
+  border-top: 1px solid var(--border);
+  padding: 25px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+@media(max-width: 700px) {
+  main { padding-top: 42px; }
+  .grid { grid-template-columns: 1fr; }
+  .controls { grid-template-columns: 1fr; }
+  h1 { letter-spacing: -1.5px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">WorthIt<span>.</span></div>
+  <div class="tag">BUY SMARTER</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">Less scrolling. Better choices.</div>
+    <h1>Find what’s <span>worth it.</span></h1>
+    <p>Tell us what you need and your budget.<br>
+    Get a useful shortlist without the endless research.</p>
+  </section>
+
+  <section class="search-panel">
+    <div class="controls">
+      <div>
+        <label for="query">WHAT ARE YOU LOOKING FOR?</label>
+        <input id="query" placeholder="e.g. gaming headset, keyboard, monitor">
+      </div>
+      <div>
+        <label for="budget">YOUR MAXIMUM BUDGET</label>
+        <select id="budget">
+          <option value="50">Up to $50</option>
+          <option value="100">Up to $100</option>
+          <option value="200" selected>Up to $200</option>
+          <option value="500">Up to $500</option>
+          <option value="1000">Up to $1,000</option>
+          <option value="999999">Any budget</option>
+        </select>
+      </div>
+    </div>
+    <button class="search-btn" onclick="findProducts()">Find my best options →</button>
+    <div id="message">Recommendations use a starter catalog. Prices are illustrative, not live quotes.</div>
+  </section>
+
+  <div class="section-head">
+    <h2 id="resultsTitle">Popular picks</h2>
+    <span class="small" id="count"></span>
+  </div>
+  <section class="grid" id="products"></section>
+</main>
+
+<footer>
+  <strong>WorthIt Finder</strong><br>
+  Independent product discovery. Starter products and prices are examples, not verified live listings.<br>
+  Future affiliate links may earn us a commission at no extra cost to you.
+</footer>
+
+<script>
+const catalog = [
+  {name:"Everyday Wireless Mouse",category:"Accessories",price:25,icon:"🖱️",
+   terms:"mouse wireless computer office",
+   pros:["Simple everyday use","Budget-friendly"],cons:["Not for every gaming style"]},
+  {name:"Gaming Headset Starter",category:"Gaming",price:45,icon:"🎧",
+   terms:"gaming headset headphones audio microphone",
+   pros:["Made for gaming chat","Accessible price"],cons:["Sound preferences vary"]},
+  {name:"Mechanical Keyboard",category:"Gaming",price:70,icon:"⌨️",
+   terms:"keyboard mechanical gaming typing",
+   pros:["Tactile typing option","Useful for gaming and work"],cons:["Can be louder than other keyboards"]},
+  {name:"1080p Monitor",category:"Displays",price:120,icon:"🖥️",
+   terms:"monitor screen display 1080p computer",
+   pros:["Suitable for everyday PC use","Lower-cost display option"],cons:["Not a high-resolution display"]},
+  {name:"Gaming Controller",category:"Gaming",price:55,icon:"🎮",
+   terms:"controller gamepad gaming console",
+   pros:["Comfortable option for supported games","Familiar controls"],cons:["Compatibility depends on device"]},
+  {name:"USB Microphone",category:"Audio",price:65,icon:"🎙️",
+   terms:"microphone usb streaming podcast voice",
+   pros:["Useful for calls and recordings","Simple category to explore"],cons:["Room acoustics affect sound"]},
+  {name:"Laptop Stand",category:"Accessories",price:30,icon:"💻",
+   terms:"laptop stand desk office ergonomic",
+   pros:["Raises laptop screen","Compact desk accessory"],cons:["Does not add a monitor"]},
+  {name:"Webcam",category:"Accessories",price:40,icon:"📷",
+   terms:"webcam camera video calls streaming",
+   pros:["For video calls","Simple setup on many computers"],cons:["Image quality varies by model"]},
+  {name:"Portable Bluetooth Speaker",category:"Audio",price:50,icon:"🔊",
+   terms:"speaker bluetooth portable music audio",
+   pros:["Portable listening option","Wireless convenience"],cons:["Battery life varies by model"]}
+];
+
+function findProducts() {
+  const q = document.getElementById("query").value.toLowerCase().trim();
+  const budget = Number(document.getElementById("budget").value);
+  const words = q.split(/\s+/).filter(Boolean);
+
+  let results = catalog
+    .filter(p => p.price <= budget)
+    .map(p => ({
+      ...p,
+      score: words.reduce((n, word) =>
+        n + ((p.name+" "+p.category+" "+p.terms).toLowerCase().includes(word) ? 1 : 0), 0)
+    }));
+
+  if (q) {
+    results = results.filter(p => p.score > 0)
+      .sort((a,b) => b.score - a.score || a.price - b.price);
+  } else {
+    results.sort((a,b) => a.price - b.price);
+  }
+
+  document.getElementById("resultsTitle").textContent =
+    q ? "Your matches" : "Options within your budget";
+  document.getElementById("count").textContent = results.length + " options";
+  document.getElementById("message").textContent = results.length
+    ? "Compare these starter examples. Check current prices and product details before buying."
+    : "No matches in this starter catalog. Try a broader search or increase your budget.";
+
+  document.getElementById("products").innerHTML = results.map(p => `
+    <article class="card">
+      <div class="product-icon" aria-hidden="true">${p.icon}</div>
+      <div class="category">${p.category}</div>
+      <h3>${p.name}</h3>
+      <div class="price">$${p.price}<small> example price</small></div>
+      <div class="small">Things to consider</div>
+      <ul>
+        ${p.pros.map(x=>`<li>${x}</li>`).join("")}
+        ${p.cons.map(x=>`<li>Note: ${x}</li>`).join("")}
+      </ul>
+      <button class="secondary" onclick="savePick('${p.name.replace(/'/g,"")}')">Save this pick</button>
+    </article>
+  `).join("");
+}
+
+function savePick(name) {
+  try {
+    const saved = JSON.parse(localStorage.getItem("worthit-picks") || "[]");
+    if (!saved.includes(name)) saved.push(name);
+    localStorage.setItem("worthit-picks", JSON.stringify(saved));
+    document.getElementById("message").textContent = "Saved: " + name + " on this device.";
+  } catch {
+    document.getElementById("message").textContent = "Saving isn't available in this browser session.";
+  }
+}
+
+findProducts();
+</script>
+</body>
+</html>
